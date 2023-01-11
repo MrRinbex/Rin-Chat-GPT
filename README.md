@@ -2,7 +2,7 @@
 
 Chat GPT
 
-<img src="./public/logo.png" />
+<img src="./client/public/logo.png" />
 
 Package & Framework using :
 
