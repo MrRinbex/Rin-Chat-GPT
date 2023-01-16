@@ -8,11 +8,11 @@ const chatContainer = document.querySelector("#chat_container");
 let loadInterval;
 
 const loader = (el) => {
-  el.textContent = " ";
+  el.textContent = "";
   loadInterval = setInterval(() => {
     el.textContent += ".";
     if (el.textContent === "....") {
-      el.textContent === " ";
+      el.textContent = "";
     }
   }, 300);
 };
@@ -23,7 +23,7 @@ const typeText = (el, text) => {
 
   let interval = setInterval(() => {
     if (index < text.length) {
-      el.innerHTML += text.chartAt(index);
+      el.innerHTML += text.charAt(index);
       index++;
     } else {
       clearInterval(interval);
@@ -70,6 +70,29 @@ const handelSubmit = async (e) => {
 
   const messageDiv = document.getElementById(uniqueId);
   loader(messageDiv);
+
+  //fetch data from the server
+
+  const response = await fetch("http://localhost:5000", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt: data.get("prompt") }),
+  });
+
+  clearInterval(loadInterval);
+  messageDiv.innerHTML = " ";
+
+  if (response.ok) {
+    const data = await response.json();
+    const parsedData = data.bot.trim();
+    typeText(messageDiv, parsedData);
+  } else {
+    const error = await response.text();
+
+    messageDiv.innerHTML = " Something went wrong";
+
+    alert(error);
+  }
 };
 
 form.addEventListener("submit", handelSubmit);
