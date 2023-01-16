@@ -8,12 +8,11 @@ Chat GPT
 
 Package & Framework using :
 
-- NodeJS
+- Node.js
 - Express
 - Cors
 - OpenAI
-- OpenAPI
-- ViteJs
+- Vite.js
 - JavaScript
 - HTML / CSS
 - Render
