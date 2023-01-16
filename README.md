@@ -1,4 +1,6 @@
-# Rin-Chat-GPT
+# [Rin-Chat-GPT](https://rin-chat-gpt.vercel.app)
+
+# [Rin-Chat-GPT Server](https://rin-chat-gpt.onrender.com)
 
 Chat GPT
 
@@ -14,3 +16,5 @@ Package & Framework using :
 - ViteJs
 - JavaScript
 - HTML / CSS
+- Render
+- Vercel
